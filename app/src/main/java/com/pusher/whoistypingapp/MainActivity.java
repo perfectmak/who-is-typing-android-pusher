@@ -28,8 +28,8 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String USER_TYPING_ENDPOINT = "https://{NODE_JS_SERVER_ENDPOINT}/userTyping";
-    private static final String PUSHER_API_KEY = "PUSHER_API_KEY";
+    private static final String USER_TYPING_ENDPOINT = "http://eece86ff.ngrok.io/userTyping";
+    private static final String PUSHER_API_KEY = "ba9e3547ed00e955b016";
     private static final String CHANNEL_NAME = "anonymous_chat";
     private static final String USER_TYPING_EVENT = "user_typing";
 
@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
     Button sendButton;
     TimerTask clearTimerTask;
     Timer clearTimer;
+
+    String username = "sweet_kitten-"+ new Random().nextInt(1000);
 
 
     @Override
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 Request userIsTypingRequest = new Request.Builder()
                         .url(USER_TYPING_ENDPOINT)
                         .post(new FormBody.Builder()
-                                .add("username", getUsername())
+                                .add("username", getCurrentUsername())
                                 .build())
                         .build();
 
@@ -90,14 +92,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onEvent(String channel, String event, String data) {
                 final WhosTyping whosTyping = new Gson().fromJson(data, WhosTyping.class);
-//                if(!whosTyping.username.equals(getUsername())) {
+                if(!whosTyping.username.equals(getCurrentUsername())) {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             getSupportActionBar().setSubtitle(whosTyping.username + " is typing...");
                         }
                     });
-//                }
+                }
 
                 //reset timer
                 if(clearTimer != null) {
@@ -154,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
     }
 
-    private String getUsername() {
-        return "sweet_kitten-"+ new Random().nextInt(1000);
+    private String getCurrentUsername() {
+        return username;
     }
 }
