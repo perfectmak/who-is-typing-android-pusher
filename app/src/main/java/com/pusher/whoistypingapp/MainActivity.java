@@ -28,8 +28,8 @@ import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String USER_TYPING_ENDPOINT = "http://eece86ff.ngrok.io/userTyping";
-    private static final String PUSHER_API_KEY = "ba9e3547ed00e955b016";
+    private static final String USER_TYPING_ENDPOINT = "https://{NODE_JS_SERVER_ENDPOINT}/userTyping";
+    private static final String PUSHER_API_KEY = "PUSHER_API_KEY";
     private static final String CHANNEL_NAME = "anonymous_chat";
     private static final String USER_TYPING_EVENT = "user_typing";
 
