@@ -1,6 +1,6 @@
 # Who's typing Tutorial.
 
-This project is the code for the pusher tutorial on ["How to build a 'Who's typing' feature in Android"](https://blog.pusher.com).
+This project is the code for the pusher tutorial on ["How to build a 'Who's typing' feature in Android"](https://blog.pusher.com/build-whos-typing-feature-android/).
 
 ## Requirements
 - [A free Pusher account](https://pusher.com)
