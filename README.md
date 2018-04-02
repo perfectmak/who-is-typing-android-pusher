@@ -7,9 +7,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 - [A free Pusher account](https://pusher.com)
-- [Android Studio](https://developer.android.com/studio/index.html)
-- MinSdkVersion: 19
-- TargetSdkVersion: 25
+- [Android Studio](https://developer.android.com/studio/index.html) version 2.3 or above 
+- Android MinSdkVersion: 19
+- Android TargetSdkVersion: 26
 
 ### Setup Instructions
 1. Create an app on Pusher and copy your app key.
